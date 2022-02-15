@@ -1,0 +1,31 @@
+package ali;
+
+public class smallest {
+
+	 public static int SmallestMissing(int[] n, int l, int r)
+	    {
+	        
+	        if (l > r) {
+	            return l;
+	        }
+	 
+	        int mid = l + (r - l) / 2;
+	 
+	        
+	        if (n[mid] == mid) {
+	            return SmallestMissing(n, mid + 1, r);
+	        }
+	        else {
+	            
+	            return SmallestMissing(n, l, mid - 1);
+	        }
+	    }
+	 
+	    public static void main(String[] args)
+	    {
+	        int[] n = { 0, 1,2,6,9,11,15};
+	 
+	        int l = 0, r = n.length - 1;
+	        System.out.println("The smallest missing element is " + SmallestMissing(n, l, r));
+	    }
+	}
